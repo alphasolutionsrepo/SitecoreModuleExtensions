@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CRMSecurityProvider.Caching;
 using CRMSecurityProvider.crm3.webservice;
 using CRMSecurityProvider.Repository;
@@ -10,8 +6,11 @@ using CRMSecurityProvider.Repository.V3;
 using CRMSecurityProvider.Utils;
 using Sitecore.Diagnostics;
 
-namespace AlphaSolutions.Sitecore.ExtendedCRMProvider.RoleRepository
+namespace AlphaSolutions.SitecoreCms.ExtendedCRMProvider.Repository.V3
 {
+    /// <summary>
+    /// Not Used at this point
+    /// </summary>
     class RoleRepositoryV3 : CRMSecurityProvider.Repository.V3.RoleRepositoryV3
     {
         public RoleRepositoryV3(ICrmServiceV3 crmService, IMarketingListToRoleConverterV3 marketingListToRoleConverter, IContactToUserConverterV3 contactToUserConverter, UserRepositoryBase userRepository, ICacheService cacheService)  : base(crmService, marketingListToRoleConverter, contactToUserConverter, userRepository, cacheService)

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB141F0B-2949-46AD-ABD2-9A2C5230B110}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlphaSolutions.SitecoreCms.ExtendedCRMProvider</RootNamespace>
+    <AssemblyName>AlphaSolutions.SitecoreCms.ExtendedCRMProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CRMSecurityProvider">
+      <HintPath>..\External Dependencies\CRMSecurityProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\External Dependencies\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External Dependencies\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\External Dependencies\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.Connector">
+      <HintPath>..\External Dependencies\Microsoft.Xrm.Tooling.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\External Dependencies\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\SitecoreUtility.cs" />
+    <Compile Include="CRMMembershipProvider.cs" />
+    <Compile Include="CRMProfileProvider.cs" />
+    <Compile Include="CRMRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Factory\ProfileRepositoryFactory.cs" />
+    <Compile Include="Repository\Factory\RepositoryFactory.cs" />
+    <Compile Include="Repository\Factory\RoleRepositoryFactory.cs" />
+    <Compile Include="Repository\Factory\UserRepositoryFactory.cs" />
+    <Compile Include="Repository\IUpdateSecurityTokenRespone.cs" />
+    <Compile Include="Repository\V5\CrmServiceCreatorV5.cs" />
+    <Compile Include="Repository\V5\ManagedTokenOrganizationServiceProxy.cs" />
+    <Compile Include="Repository\V3\RoleRepositoryV3.cs" />
+    <Compile Include="Repository\V5\RoleRepositoryV5.cs" />
+    <Compile Include="Sources\AdapterBase!1.cs" />
+    <Compile Include="Sources\AdapterFactoryBase!2.cs" />
+    <Compile Include="Sources\Attribute\CrmAttributeAdapterBase!1.cs" />
+    <Compile Include="Sources\Attribute\Metadata\CrmAttributeMetadataAdapterBase!1.cs" />
+    <Compile Include="Sources\Entity\CrmEntityAdapterBase!1.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmAttributeAdapter!1.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmAttributeAdapterFactory.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmAttributeCollectionAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmBoolAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmDateTimeAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmDecimalAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmDoubleAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmEntityReferenceAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmGuidAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmIntegerAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmLongAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmMoneyAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmNamingAttributeAdapterFactory.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmObjectAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmOptionSetValueAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmStringAttributeAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\CrmValueTypeAttributeAdapter!1.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmAttributeMetadataAdapter!1.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmAttributeMetadataFactory.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmLookupAttributeMetadataAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmOptionsAttributeMetadataAdapter!1.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmPicklistAttributeMetadataAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmStateAttributeMetadataAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Attribute\Metadata\CrmStatusAttributeMetadataAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\EntityRepository.cs" />
+    <Compile Include="Sources\Repository\V5\Entity\CrmEntityAdapter.cs" />
+    <Compile Include="Sources\Repository\V5\Entity\CrmEntityMetadataAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConfigurationExamples\ExampleIncludeFile.config" />
+    <None Include="ConfigurationExamples\WebConfigChanges.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

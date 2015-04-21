@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Xml;
+using AlphaSolutions.SitecoreCms.ExtendedCRMProvider.Common;
+using CRMSecurityProvider.Caching;
+using CRMSecurityProvider.Configuration;
+using CRMSecurityProvider.Repository;
+using CRMSecurityProvider.Repository.V5;
+using CRMSecurityProvider.Utils;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
-
-using CRMSecurityProvider.Caching;
-using CRMSecurityProvider.Utils;
-
 using Sitecore.Diagnostics;
-using CRMSecurityProvider.Repository.V5;
-using CRMSecurityProvider.Repository;
-using Microsoft.Xrm.Sdk.Query;
-using CRMSecurityProvider.Configuration;
-using System.IO;
-using System.Xml;
 
-namespace AlphaSolutions.Sitecore.ExtendedCRMProvider.RoleRepository
+namespace AlphaSolutions.SitecoreCms.ExtendedCRMProvider.Repository.V5
 {
     class RoleRepositoryV5 : CRMSecurityProvider.Repository.V5.RoleRepositoryV5
     {
@@ -26,8 +23,21 @@ namespace AlphaSolutions.Sitecore.ExtendedCRMProvider.RoleRepository
         {
         }
 
+        /// <summary>
+        /// Method to get users in given Role. in CRM Marketing list.
+        /// This method has been customized to support dynamic lists.
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <returns></returns>
         public override string[] GetUsersInRole(string roleName)
         {
+            //setting that disabled the dynamic list functionality.
+            if (SitecoreUtility.GetSitecoreSetting<bool>("AlphaSolutions.ExtendedCRMProvider.Disable.DynamicLists",
+                false))
+            {
+                return base.GetUsersInRole(roleName);
+            }
+
             Assert.ArgumentNotNull(roleName, "roleName");
             ConditionalLog.Info(string.Format("GetUsersInRole({0}). Started.", roleName), this, TimerAction.Start, "getUsersInRole");
             string text = base.CacheService.MembersCache.Get(roleName);
